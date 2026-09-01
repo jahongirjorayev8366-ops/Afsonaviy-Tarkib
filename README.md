@@ -1,0 +1,2 @@
+# Afsonaviy-Tarkib
+Zidaning shogirtlari
