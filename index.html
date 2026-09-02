@@ -409,6 +409,77 @@ h2 {
     letter-spacing: 0.5px;
 }
 
+.club-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.club-mark {
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.club-mark span {
+    color: var(--gold);
+}
+
+.club-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.club-nav a {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+.club-nav a:hover {
+    color: var(--gold);
+}
+
+.team-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 24px 0 8px;
+}
+
+.stat {
+    padding: 14px 10px;
+    border-left: 3px solid var(--gold);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.stat strong,
+.stat span {
+    display: block;
+}
+
+.stat strong {
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+.stat span {
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -457,6 +528,27 @@ h2 {
 }
 
 @media (max-width: 760px) {
+    .club-bar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .club-nav {
+        justify-content: flex-start;
+    }
+
+    .team-stats {
+        gap: 8px;
+    }
+
+    .stat strong {
+        font-size: 1.25rem;
+    }
+
+    .stat span {
+        font-size: 0.65rem;
+    }
+
     .hero {
         grid-template-columns: 1fr;
     }
@@ -495,6 +587,15 @@ h2 {
 </head>
 <body>
 <div class="container">
+    <div class="club-bar">
+        <div class="club-mark">Zidan's <span>Madrid</span></div>
+        <nav class="club-nav" aria-label="Asosiy menyu">
+            <a href="#squad">Tarkib</a>
+            <a href="#tactics">Taktika</a>
+            <a href="#honours">Yutuqlar</a>
+        </nav>
+    </div>
+
     <div class="header">
         <div class="hero">
             <div class="hero-copy">
@@ -508,16 +609,21 @@ h2 {
                 <img class="team-image" src="2.jpg" alt="Real Madrid futbol jamoasi va Cristiano Ronaldo">
             </div>
         </div>
+        <div class="team-stats" aria-label="Jamoa statistikasi">
+            <div class="stat"><strong>11</strong><span>Asosiy futbolchi</span></div>
+            <div class="stat"><strong>4</strong><span>Yutuqlar</span></div>
+            <div class="stat"><strong>1</strong><span>Afsonaviy jamoa</span></div>
+        </div>
     </div>
 
-    <div class="players-section">
+    <div class="players-section" id="tactics">
         <div class="section-head">
             <h2>👨‍💼 Coaching Staff</h2>
         </div>
         <div class="coach">👨‍⚽ Zinedine Zidan - Asosiy Menejer</div>
     </div>
 
-    <div class="players-section">
+    <div class="players-section" id="squad">
         <div class="section-head">
             <h2>⭐ Top Players</h2>
         </div>
@@ -528,7 +634,7 @@ h2 {
         </div>
     </div>
 
-    <div class="players-section">
+    <div class="players-section" id="honours">
         <div class="section-head">
             <h2>🧠 Zidan's Taktika</h2>
         </div>
