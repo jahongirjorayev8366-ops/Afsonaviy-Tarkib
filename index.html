@@ -247,6 +247,82 @@ h2 {
     gap: 16px;
 }
 
+.pitch-wrap {
+    background: #0c392d;
+    border: 1px solid rgba(255, 198, 0, 0.35);
+    border-radius: 18px;
+    padding: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.pitch {
+    min-height: 470px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    background: repeating-linear-gradient(90deg, #17633e 0, #17633e 11%, #1b7047 11%, #1b7047 22%);
+}
+
+.pitch::before,
+.pitch::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgba(255, 255, 255, 0.65);
+}
+
+.pitch::before {
+    top: 50%;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+}
+
+.pitch::after {
+    top: 0;
+    width: 170px;
+    height: 72px;
+    border-top: 0;
+}
+
+.formation-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+}
+
+.line-keeper { bottom: 22px; }
+.line-defense { bottom: 112px; }
+.line-midfield { top: 190px; }
+.line-attack { top: 70px; }
+
+.tactical-player {
+    width: 86px;
+    min-height: 62px;
+    padding: 8px 4px;
+    border: 1px solid rgba(255, 216, 102, 0.7);
+    border-radius: 10px;
+    background: rgba(9, 24, 34, 0.9);
+    color: #ffe18a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.tactical-player:hover {
+    background: #c41e3a;
+    transform: translateY(-4px);
+}
+
 .player,
 .coach,
 .achievement {
@@ -353,6 +429,20 @@ h2 {
         grid-template-columns: 1fr;
     }
 
+    .pitch {
+        min-height: 410px;
+    }
+
+    .tactical-player {
+        width: 62px;
+        min-height: 54px;
+        font-size: 0.62rem;
+    }
+
+    .line-defense { bottom: 96px; }
+    .line-midfield { top: 170px; }
+    .line-attack { top: 62px; }
+
     .container {
         padding: 24px 18px 28px;
     }
@@ -390,6 +480,35 @@ h2 {
             <div class="player">🏆 Cristiano Ronaldo - Top scorer</div>
             <div class="player">🎯 Gareth Bale - Wing threat</div>
             <div class="player">⚡ Luka Modric - Playmaker</div>
+        </div>
+    </div>
+
+    <div class="players-section">
+        <div class="section-head">
+            <h2>🧠 Zidan's Taktika</h2>
+        </div>
+        <div class="pitch-wrap">
+            <div class="pitch" aria-label="Real Madrid 2013 tactical formation">
+                <div class="formation-line line-attack">
+                    <button class="tactical-player player" type="button">Cristiano Ronaldo<br><small>LW</small></button>
+                    <button class="tactical-player player" type="button">Karim Benzema<br><small>ST</small></button>
+                    <button class="tactical-player player" type="button">Gareth Bale<br><small>RW</small></button>
+                </div>
+                <div class="formation-line line-midfield">
+                    <button class="tactical-player player" type="button">Mesut Ozil<br><small>CAM</small></button>
+                    <button class="tactical-player player" type="button">Luka Modric<br><small>CM</small></button>
+                    <button class="tactical-player player" type="button">Toni Kroos<br><small>CM</small></button>
+                </div>
+                <div class="formation-line line-defense">
+                    <button class="tactical-player player" type="button">Marcelo<br><small>LB</small></button>
+                    <button class="tactical-player player" type="button">Pepe<br><small>CB</small></button>
+                    <button class="tactical-player player" type="button">Sergio Ramos<br><small>CB</small></button>
+                    <button class="tactical-player player" type="button">Daniel Carvajal<br><small>RB</small></button>
+                </div>
+                <div class="formation-line line-keeper">
+                    <button class="tactical-player player" type="button">Iker Casillas<br><small>GK</small></button>
+                </div>
+            </div>
         </div>
     </div>
 
