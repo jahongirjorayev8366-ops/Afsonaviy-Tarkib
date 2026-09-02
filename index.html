@@ -204,10 +204,11 @@ h1 {
 
 .team-image {
     width: 100%;
-    max-height: 135px;
+    height: 220px;
     object-fit: cover;
+    object-position: center top;
     border-radius: 12px;
-    margin-top: 14px;
+    margin-top: 8px;
     display: block;
 }
 
@@ -247,6 +248,27 @@ h1 {
     margin: 26px 0 18px;
     padding-bottom: 10px;
     border-bottom: 2px solid rgba(255, 198, 0, 0.18);
+}
+
+.player-search {
+    width: 100%;
+    margin: 0 0 16px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 198, 0, 0.3);
+    border-radius: 12px;
+    background: rgba(7, 17, 31, 0.75);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+}
+
+.player-search::placeholder {
+    color: var(--muted);
+}
+
+.player-search:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(255, 198, 0, 0.1);
 }
 
 h2 {
@@ -457,6 +479,10 @@ h2 {
         font-size: 0.62rem;
     }
 
+    .team-image {
+        height: 170px;
+    }
+
     .line-defense { bottom: 96px; }
     .line-midfield { top: 170px; }
     .line-attack { top: 62px; }
@@ -535,6 +561,7 @@ h2 {
         <div class="section-head">
             <h2>🏆 2013 Real Madrid XI</h2>
         </div>
+        <input class="player-search" type="search" placeholder="🔎 Futbolchini qidiring..." aria-label="Futbolchini qidiring">
         <div class="player-grid">
             <div class="player">🧤 Iker Casillas - Darvozabon</div>
             <div class="player">🛡️ Sergio Ramos - Himoyachi</div>
@@ -613,9 +640,18 @@ const modal = document.getElementById('playerModal');
 const closeBtn = document.querySelector('.close');
 const playerNameElem = document.getElementById('playerName');
 const playerInfoElem = document.getElementById('playerInfo');
+const playerSearch = document.querySelector('.player-search');
 
 // Player elements
 const players = document.querySelectorAll('.player');
+
+playerSearch.addEventListener('input', function() {
+    const searchText = this.value.trim().toLowerCase();
+
+    players.forEach(player => {
+        player.hidden = searchText !== '' && !player.textContent.toLowerCase().includes(searchText);
+    });
+});
 
 players.forEach(player => {
     player.addEventListener('click', function() {
